@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Kami from "./components/Kami";
+import TentangKami from "./pages/TentangKami";
+import HomePage from "./pages/HomePage";
+import Profil from "./components/profil";
 
-function App() {
+export default function App() {
   return (
-    <div>App</div>
-  )
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/profil" element={<Profil />} />
+      <Route path="/TentangKami" element={<TentangKami />} />
+    </Routes>
+  );
 }
-
-export default App

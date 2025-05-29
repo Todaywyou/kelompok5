@@ -1,15 +1,23 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 import Hero from '../components/Hero'
+import Card from '../components/card'
+import Profil from '../components/profil'
+import Sejarah from '../components/Sejarah'
+import Kami from '../components/Kami'
 
 
 
 export default function HomePage() {
-  return(
+  return (
     <div>
-      <NavBar/>
-      <Hero/>
+      <NavBar />
+      <Hero />
+      <Profil />
+      <Card/>
+      <Kami />
+      <Sejarah />
     </div>
-  )
+  );
   
 }

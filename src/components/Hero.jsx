@@ -3,7 +3,7 @@ import React from 'react';
 function Hero() {
     return (
       <div>
-        <section className="relative bg-gradient-to-b from-orange-100 to-red-100 py-12 pt-24 z-0 ">
+        <section className="relative bg-gradient-to-b from-orange-100 to-red-100 py-12 pt-28 z-0 ">
           {/* Blurred background image */}
           <img
             src="/bg.png"
@@ -27,17 +27,17 @@ function Hero() {
                   See Today's Menu
                 </button>
               </div>
-              <div className="w-full lg:w-1/2 flex justify-center gap-4">
+              <div className="w-full lg:w-1/2 flex justify-center gap-6">
                 {/* Two images side by side, smaller size for logo space */}
                 <img
                   src="/Logo.png"
                   alt="University Canteen 1"
-                  className="w-28 h-28 md:w-36 md:h-36 rounded-2xl shadow-xl border-4 border-orange-400 object-cover"
+                  className="w-30 h-30 "
                 />
                 <img
-                  src="/bg.png"
-                  alt="University Canteen 2"
-                  className="w-28 h-28 md:w-36 md:h-36 rounded-2xl shadow-xl border-4 border-orange-400 object-cover"
+                  src="/ntin.png"
+                  alt="University Canteen 1"
+                  className="w-30 h-30 "
                 />
               </div>
             </div>
