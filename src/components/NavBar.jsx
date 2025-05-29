@@ -1,5 +1,6 @@
-import { Store } from 'lucide-react';
-import React from 'react'
+import { Store } from "lucide-react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -28,13 +29,13 @@ function NavBar() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>HOME</a>
+                <Link to="/">HOME</Link>
               </li>
               <li>
                 <a>Katalog</a>
                 <ul className="p-2">
                   <li>
-                    <a>Makanan & Miuman</a>
+                    <a>Makanan & Minuman</a>
                   </li>
                   <li>
                     <a>Kebutuhan Kuliah</a>
@@ -46,18 +47,21 @@ function NavBar() {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">
+          <Link to="/" className="btn btn-ghost text-xl">
             <Store /> Kantin HMJ MI
-          </a>
+          </Link>
         </div>
+
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <details>
-                <summary>Katalog</summary>
+                <summary>
+                  <Link to="/katalog">Katalog</Link>
+                </summary>
                 <ul className="p-2">
                   <li>
                     <a>Makanan&Minuman</a>
@@ -73,7 +77,7 @@ function NavBar() {
             </li>
           </ul>
         </div>
-        {/* Group search and button together */}
+
         <div className="navbar-end flex items-center gap-3">
           <div className="relative">
             <input
@@ -94,8 +98,23 @@ function NavBar() {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" fill="none" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <circle
+                  cx="11"
+                  cy="11"
+                  r="7"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  fill="none"
+                />
+                <line
+                  x1="21"
+                  y1="21"
+                  x2="16.65"
+                  y2="16.65"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
               </svg>
             </button>
           </div>
@@ -106,4 +125,4 @@ function NavBar() {
   );
 }
 
-export default NavBar
+export default NavBar;
