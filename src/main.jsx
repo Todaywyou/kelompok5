@@ -1,19 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import { BrowserRouter, Route, Routes } from 'react-router'
-import HomePage from './pages/HomePage.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import { BrowserRouter, Route, Router, Routes } from "react-router";
+import NavBar from "./components/NavBar.jsx";
+import HomePage from "./pages/HomePage.jsx";
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
-    <Routes>
-      <Route path='/'element={<HomePage/>} />
-    </Routes>
-    </BrowserRouter>
+createRoot(document.getElementById("root")).render(
+ <StrictMode>
+  <BrowserRouter>
+  <Routes>
+    <Route path='/' element={<HomePage/>}/>
+
    
-  </StrictMode>,
-)
-
-
+  </Routes>
+  </BrowserRouter>
+ </StrictMode>
+);
