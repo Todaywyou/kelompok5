@@ -16,7 +16,7 @@ export default function HomePage() {
       <Hero />
       <Profil />
       <Card/>
-      <Mitra/>
+    <Mitra/>
       <Kami />
       <Sejarah />
     </div>
