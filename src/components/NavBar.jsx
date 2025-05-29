@@ -4,7 +4,7 @@ import React from 'react'
 function NavBar() {
   return (
     <div>
-      <div className="navbar bg-orange-300 shadow-sm">
+      <div className="navbar bg-orange-300 shadow-sm relative z-50">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -25,7 +25,7 @@ function NavBar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
             >
               <li>
                 <a>HOME</a>
