@@ -75,7 +75,7 @@ function NavBar() {
                   <Link to="/makan">Makanan & Minuman</Link>
                 </li>
                 <li>
-                  <Link to="/katalog#kuliah">Kebutuhan Kuliah</Link>
+                  <Link to="/katalog">Kebutuhan Kuliah</Link>
                 </li>
               </ul>
             </details>
