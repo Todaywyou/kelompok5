@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isSubmenuOpen, setSubmenuOpen] = useState(false);
 
   return (
     <div className="navbar bg-orange-300 shadow-sm relative z-50">
       {/* Start */}
       <div className="navbar-start">
+        {/* Dropdown untuk mobile */}
         <div className="dropdown">
           <button
             onClick={() => setDropdownOpen(!isDropdownOpen)}
@@ -30,55 +32,108 @@ function NavBar() {
             </svg>
           </button>
 
-          {/* Mobile Menu */}
+          {/* Menu dropdown di mobile */}
           {isDropdownOpen && (
             <ul className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-orange-200 rounded-box w-52 z-50">
               <li>
-                <Link to="/">HOME</Link>
-              </li>
-              <li tabIndex={0}>
-                <details>
-                  <summary>Katalog</summary>
-                  <ul className="p-2 bg-orange-100 rounded">
-                    <li>
-                      <Link to="/katalog#makanan">Makanan & Minuman</Link>
-                    </li>
-                    <li>
-                      <Link to="/katalog#kuliah">Kebutuhan Kuliah</Link>
-                    </li>
-                  </ul>
-                </details>
+                <Link to="/" onClick={() => setDropdownOpen(false)}>
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to="/contact">Contact</Link>
+                {/* Tombol untuk submenu */}
+                <button
+                  onClick={() => setSubmenuOpen(!isSubmenuOpen)}
+                  className="flex justify-between items-center w-full"
+                >
+                  Katalog
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`h-4 w-4 transition-transform ${
+                      isSubmenuOpen ? "rotate-180" : "rotate-0"
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                {/* Submenu */}
+                {isSubmenuOpen && (
+                  <ul className="p-2 bg-orange-100 rounded mt-1">
+                    <li>
+                      <Link
+                        to="/katalog#makanan"
+                        onClick={() => {
+                          setDropdownOpen(false);
+                          setSubmenuOpen(false);
+                        }}
+                      >
+                        Makanan & Minuman
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/katalog#kuliah"
+                        onClick={() => {
+                          setDropdownOpen(false);
+                          setSubmenuOpen(false);
+                        }}
+                      >
+                        Kebutuhan Kuliah
+                      </Link>
+                    </li>
+                  </ul>
+                )}
+              </li>
+              <li>
+                <Link to="/contact" onClick={() => setDropdownOpen(false)}>
+                  Contact
+                </Link>
               </li>
             </ul>
           )}
         </div>
 
+        {/* Logo / Judul */}
         <Link to="/" className="btn btn-ghost text-xl flex items-center gap-2">
           <Store /> Kantin HMJ MI
         </Link>
       </div>
 
-      {/* Center - Desktop */}
+      {/* Center untuk desktop */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <details>
-              <summary>Katalog</summary>
-              <ul className="p-2 bg-orange-200 rounded">
-                <li>
-                  <Link to="/makan">Makanan & Minuman</Link>
-                </li>
-                <li>
-                  <Link to="/katalog">Kebutuhan Kuliah</Link>
-                </li>
-              </ul>
-            </details>
+          <li className="relative group">
+            <span className="cursor-pointer">Katalog</span>
+            {/* Submenu untuk desktop */}
+            <ul className="absolute hidden group-hover:block bg-orange-200 mt-2 rounded shadow">
+              <li>
+                <Link
+                  to="/makan"
+                  className="block px-4 py-2 hover:bg-orange-100"
+                >
+                  Makanan & Minuman
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/katalog"
+                  className="block px-4 py-2 hover:bg-orange-100"
+                >
+                  Kebutuhan Kuliah
+                </Link>
+              </li>
+            </ul>
           </li>
           <li>
             <Link to="/contact">Kontak</Link>
@@ -97,7 +152,6 @@ function NavBar() {
           <button
             type="button"
             className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
-            tabIndex={0}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
