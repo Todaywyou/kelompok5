@@ -13,7 +13,7 @@ export default function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/profil" element={<Profil />} />
       <Route path="/TentangKami" element={<TentangKami />} />
-      <Route path="/katalog" element={<Katalog />} />
+      <Route path="/Katalog" element={<Katalog />} />
       <Route path="/makan" element={<Makan />} />
     </Routes>
   );

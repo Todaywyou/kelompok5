@@ -38,7 +38,7 @@ function NavBar() {
               </li>
               <li tabIndex={0}>
                 <details>
-                  <summary>Katalog</summary>
+                  <summary>MENU</summary>
                   <ul className="p-2 bg-orange-100 rounded">
                     <li>
                       <Link to="/makan">Makanan & Minuman</Link>
