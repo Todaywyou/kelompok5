@@ -98,7 +98,7 @@ export default function CustomerReviews() {
                 <div className="flex items-center justify-between">
                   <div>
                     <h4 className="font-semibold">{r.name}</h4>
-                    <p className="text-sm text-gray-500">{r.date}</p>
+                    <p className="text-sm text-black">{r.date}</p>
                   </div>
                   <div className="flex items-center text-yellow-400">
                     {Array(r.rating)
@@ -108,8 +108,8 @@ export default function CustomerReviews() {
                       ))}
                   </div>
                 </div>
-                <p className="mt-2 text-gray-700 text-sm">{r.comment}</p>
-                <div className="flex gap-6 mt-3 text-gray-500 text-sm">
+                <p className="mt-2 text-black text-sm">{r.comment}</p>
+                <div className="flex gap-6 mt-3 text-black text-sm">
                   <button
                     onClick={() => handleLike(r.id)}
                     className="flex items-center gap-1 hover:text-black"
@@ -130,10 +130,10 @@ export default function CustomerReviews() {
         onSubmit={handleSubmit}
         className="bg-gray-50 mt-10 p-6 rounded-lg shadow-sm space-y-4"
       >
-        <h3 className="text-lg font-semibold">Submit Your Review</h3>
+        <h3 className="text-lg text-black font-semibold">Submit Your Review</h3>
 
         <div className="flex items-center gap-2">
-          <span className="text-sm font-medium text-gray-600">
+          <span className="text-sm font-medium text-black">
             Add Your Rating:
           </span>
           {Array(5)
