@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 function Visi() {
   const shouldReduceMotion = useReducedMotion();
+  const [activeCard, setActiveCard] = useState(null); // "visi" | "misi" | null
 
   return (
     <div className="bg-gray-50 py-16 px-4 md:px-20 text-gray-800">
@@ -32,6 +33,7 @@ function Visi() {
       <div className="grid md:grid-cols-2 gap-8">
         {/* Card Visi */}
         <motion.div
+          onTap={() => setActiveCard("visi")}
           initial={shouldReduceMotion ? false : { opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ type: "spring", stiffness: 300 }}
@@ -41,6 +43,14 @@ function Visi() {
             backgroundColor: "#fee2e2",
             color: "#b91c1c",
           }}
+          animate={
+            activeCard === "visi"
+              ? {
+                  backgroundColor: "#fee2e2",
+                  color: "#b91c1c",
+                }
+              : {}
+          }
           className="bg-white rounded-xl shadow-md p-6 cursor-pointer transition-all duration-300"
         >
           <h3 className="text-lg font-semibold mb-2">Visi</h3>
@@ -53,6 +63,7 @@ function Visi() {
 
         {/* Card Misi */}
         <motion.div
+          onTap={() => setActiveCard("misi")}
           initial={shouldReduceMotion ? false : { opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ type: "spring", stiffness: 300 }}
@@ -62,6 +73,14 @@ function Visi() {
             backgroundColor: "#fee2e2",
             color: "#b91c1c",
           }}
+          animate={
+            activeCard === "misi"
+              ? {
+                  backgroundColor: "#fee2e2",
+                  color: "#b91c1c",
+                }
+              : {}
+          }
           className="bg-white rounded-xl shadow-md p-6 cursor-pointer transition-all duration-300"
         >
           <h3 className="text-lg font-semibold mb-2">Misi</h3>
