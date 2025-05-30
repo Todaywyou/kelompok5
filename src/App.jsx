@@ -16,7 +16,7 @@ export default function App() {
       <Route path="/TentangKami" element={<TentangKami />} />
       <Route path="/Katalog" element={<Katalog />} />
       <Route path="/makan" element={<Makan />} />
-      <Route path="/kontak" element={<Kontak/>}/>
+      <Route path="/Kontak" element={<Kontak/>}/>
     </Routes>
   );
 }

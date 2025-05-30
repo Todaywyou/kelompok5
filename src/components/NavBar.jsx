@@ -50,7 +50,7 @@ function NavBar() {
                 </details>
               </li>
               <li>
-                <Link to="/kontak">Contact</Link>
+                <Link to="/Kontak">Contact</Link>
               </li>
             </ul>
           )}
