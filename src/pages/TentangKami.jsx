@@ -3,6 +3,7 @@ import NavBar from '../components/NavBar'
 import Kami from '../components/Kami'
 import Visi from '../components/Visi'
 import Sejarah from '../components/Sejarah'
+import SejarahInfografis from '../components/Sejarah'
 
 function TentangKami() {
   return (
@@ -10,7 +11,7 @@ function TentangKami() {
       <NavBar/>
       <Kami/>
       <Visi/>
-      <Sejarah/>
+      <SejarahInfografis/>
     </div>
   )
 }

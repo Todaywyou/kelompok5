@@ -48,17 +48,17 @@ const dataSejarah = [
 
 const Card = ({ nomor, icon, judul, deskripsi, warna }) => {
   return (
-    <div className="relative bg-white shadow-md rounded-full px-6 py-4 flex items-center gap-4 w-full max-w-3xl mx-auto transition-all duration-300 hover:scale-[1.03]">
+    <div className="relative bg-white shadow-md rounded-full px-6 py-4 flex items-center gap-4 w-full max-w-3xl mx-auto transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]">
       <div
         className={`w-10 h-10 text-white rounded-full flex items-center justify-center shadow ${warna}`}
       >
         {icon}
       </div>
       <div className="flex-1">
-        <h4 className="text-sm font-semibold text-gray-700">
+        <h4 className="text-sm md:text-base font-semibold text-gray-700">
           {nomor} — {judul}
         </h4>
-        <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+        <p className="text-xs md:text-sm text-gray-500 mt-1 leading-relaxed">
           {deskripsi}
         </p>
       </div>
@@ -69,18 +69,20 @@ const Card = ({ nomor, icon, judul, deskripsi, warna }) => {
 const SejarahInfografis = () => {
   return (
     <div className="bg-gray-50 py-16 px-4">
-      <div className="text-center mb-10">
-        <h2 className="text-xl font-bold text-gray-800">
-          Infografis Sejarah Kantin HMJ MI
-        </h2>
-        <p className="text-sm text-gray-500 mt-2">
-          Perjalanan singkat dari awal berdiri hingga inovasi layanan.
-        </p>
-      </div>
-      <div className="flex flex-col gap-6">
-        {dataSejarah.map((item, index) => (
-          <Card key={index} {...item} />
-        ))}
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-800">
+            Infografis Sejarah Kantin HMJ MI
+          </h2>
+          <p className="text-sm md:text-base text-gray-500 mt-2">
+            Perjalanan singkat dari awal berdiri hingga inovasi layanan.
+          </p>
+        </div>
+        <div className="flex flex-col gap-6">
+          {dataSejarah.map((item, index) => (
+            <Card key={index} {...item} />
+          ))}
+        </div>
       </div>
     </div>
   );
