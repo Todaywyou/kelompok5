@@ -34,7 +34,7 @@ function Kontak() {
 
           {/* Naziel */}
           <div className="bg-blue-100 text-blue-800 p-6 rounded-lg shadow-md w-full md:w-1/4 text-center">
-            <h2 className="text-xl font-semibold mb-2">Naziel</h2>
+            <h2 className="text-xl font-semibold mb-2">Nizelia</h2>
             <p className="text-sm mb-1">Nomor: ‪(+62) 819-9744-7392‬</p>
             <p className="text-sm">Hubungi untuk bagian minuman.</p>
             <a
