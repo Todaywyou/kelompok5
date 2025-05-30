@@ -89,11 +89,6 @@ function NavBar() {
       {/* End */}
       <div className="navbar-end gap-2">
         <div className="relative">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered w-32 md:w-48 pr-10"
-          />
           <button
             type="button"
             className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
