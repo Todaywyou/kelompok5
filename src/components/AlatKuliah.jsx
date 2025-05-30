@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, X } from "lucide-react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
@@ -51,6 +51,8 @@ const products = [
 function AlatKuliah() {
   const [cartCounts, setCartCounts] = useState({});
   const [receipt, setReceipt] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [totalBayar, setTotalBayar] = useState(0);
   const receiptRef = useRef();
 
   const handleIncrease = (id) => {
@@ -68,9 +70,11 @@ function AlatKuliah() {
 
   const handleCheckout = () => {
     if (totalItems === 0) return;
+
     const queueNumber = Math.floor(Math.random() * 1000) + 1;
     let total = 0;
     let lines = `📄 Struk Belanja\nAntrian ke: ${queueNumber}\n\n`;
+
     Object.keys(cartCounts).forEach((id) => {
       const item = products.find((p) => p.id === parseInt(id));
       const count = cartCounts[id];
@@ -78,30 +82,28 @@ function AlatKuliah() {
       total += price;
       lines += `${item.name} x${count} = Rp ${price.toLocaleString()}\n`;
     });
-    lines += `\nTotal: Rp ${total.toLocaleString()}\n\n`;
-    lines += `📌 Silakan berikan struk ini ke kantin atau kirim screenshot ke CP kami untuk pengantaran.`;
+
+    lines += `\nTotal Bayar: Rp ${total.toLocaleString()}\n\n`;
+    lines += `📌 *Catatan Penting:*\nBawa bukti ini atau kirim ke kontak kami untuk proses lebih lanjut.\nTerima kasih telah berbelanja!`;
+
     setReceipt(lines);
+    setTotalBayar(total);
+    setShowModal(true);
   };
 
   const handleDownload = async () => {
-    if (!receiptRef.current) {
-      alert("Struk belum siap. Silakan klik Belanja Sekarang dulu.");
-      return;
-    }
+    if (!receiptRef.current) return;
 
     try {
-      // Beri jeda supaya elemen benar-benar render
-      await new Promise((res) => setTimeout(res, 500));
-
+      await new Promise((res) => setTimeout(res, 300));
       const canvas = await html2canvas(receiptRef.current, {
         scale: 2,
         useCORS: true,
-        backgroundColor: "#ffffff", // ini penting agar PDF tidak transparan
+        backgroundColor: "#ffffff",
       });
 
       const imgData = canvas.toDataURL("image/png");
       const pdfHeight = (canvas.height * 80) / canvas.width;
-
       const pdf = new jsPDF({
         orientation: "portrait",
         unit: "mm",
@@ -112,13 +114,12 @@ function AlatKuliah() {
       pdf.save(`struk-belanja-${Date.now()}.pdf`);
     } catch (error) {
       console.error("Gagal membuat PDF:", error);
-      alert("❌ Gagal membuat PDF. Coba reload halaman atau periksa koneksi.");
+      alert("❌ Gagal membuat PDF.");
     }
   };
-  
 
   return (
-    <div className="min-h-screen bg-orange-50 py-12 px-6">
+    <div className="min-h-screen bg-orange-50 py-12 px-6 relative">
       <h1 className="text-4xl font-bold text-center text-orange-600 mb-10">
         Daftar Alat Kuliah
       </h1>
@@ -164,7 +165,6 @@ function AlatKuliah() {
         ))}
       </div>
 
-      {/* Tombol dan keranjang di bagian bawah */}
       <div className="mt-12 flex justify-center items-center gap-4">
         <div className="relative">
           <ShoppingCart className="w-10 h-10 text-orange-600" />
@@ -178,29 +178,49 @@ function AlatKuliah() {
           onClick={handleCheckout}
           className="bg-orange-600 text-white px-6 py-2 rounded-xl shadow hover:bg-orange-700 transition"
         >
-          Belanja Sekarang
+          Pesan Sekarang
         </button>
       </div>
 
-      {receipt && (
-        <div className="mt-8 flex flex-col items-center">
-          <div
-            ref={receiptRef}
-            className="bg-white p-4 rounded shadow text-[12px] font-mono w-[260px] whitespace-pre-line text-black"
-            style={{
-              backgroundColor: "#ffffff", 
-              color: "#000000",
-              fontFamily: "monospace",
-            }}
-          >
-            {receipt}
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 w-[90%] max-w-sm shadow-lg relative">
+            <button
+              className="absolute top-2 right-2 text-gray-500 hover:text-black"
+              onClick={() => setShowModal(false)}
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <h2 className="text-lg font-semibold text-gray-800 mb-2">
+              Total Pembayaran
+            </h2>
+            <p className="text-gray-700 mb-2">
+              Total yang harus dibayar:
+              <span className="font-bold text-orange-600">
+                {" "}
+                Rp {totalBayar.toLocaleString()}
+              </span>
+            </p>
+            <p className="text-sm text-gray-600 mb-4">
+              📌 Bawa bukti ini atau kirim ke kontak kami.
+            </p>
+
+            <div
+              ref={receiptRef}
+              className="bg-gray-100 p-3 rounded text-[11px] font-mono whitespace-pre-line text-black mb-4"
+              style={{ fontFamily: "monospace" }}
+            >
+              {receipt}
+            </div>
+
+            <button
+              onClick={handleDownload}
+              className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
+            >
+              Unduh Bukti (PDF)
+            </button>
           </div>
-          <button
-            onClick={handleDownload}
-            className="mt-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
-          >
-            Download Struk
-          </button>
         </div>
       )}
     </div>
