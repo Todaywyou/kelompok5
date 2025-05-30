@@ -1,23 +1,27 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 function Visi() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div className="bg-gray-50 py-16 px-4 md:px-20 text-gray-800">
       {/* Header */}
       <div className="text-center mb-12">
         <motion.h3
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
           className="text-sm uppercase text-red-500 tracking-widest"
         >
           Visi & Misi
         </motion.h3>
         <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
           className="text-2xl md:text-3xl font-bold text-gray-800 mt-2"
         >
           Tujuan Kantin HMJ MI
@@ -28,14 +32,15 @@ function Visi() {
       <div className="grid md:grid-cols-2 gap-8">
         {/* Card Visi */}
         <motion.div
+          initial={shouldReduceMotion ? false : { opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ type: "spring", stiffness: 300 }}
+          viewport={{ once: true, amount: 0.2 }}
           whileHover={{
             scale: 1.03,
             backgroundColor: "#fee2e2",
             color: "#b91c1c",
           }}
-          transition={{ type: "spring", stiffness: 300 }}
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
           className="bg-white rounded-xl shadow-md p-6 cursor-pointer transition-all duration-300"
         >
           <h3 className="text-lg font-semibold mb-2">Visi</h3>
@@ -48,14 +53,15 @@ function Visi() {
 
         {/* Card Misi */}
         <motion.div
+          initial={shouldReduceMotion ? false : { opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ type: "spring", stiffness: 300 }}
+          viewport={{ once: true, amount: 0.2 }}
           whileHover={{
             scale: 1.03,
             backgroundColor: "#fee2e2",
             color: "#b91c1c",
           }}
-          transition={{ type: "spring", stiffness: 300 }}
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
           className="bg-white rounded-xl shadow-md p-6 cursor-pointer transition-all duration-300"
         >
           <h3 className="text-lg font-semibold mb-2">Misi</h3>
