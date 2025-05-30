@@ -189,7 +189,7 @@ export default function Makan() {
                     >
                       <Minus className="w-4 h-4" />
                     </button>
-                    <span className="font-semibold text-lg">
+                    <span className="font-extrabold text-lg text-black">
                       {cart[item.name] || 0}
                     </span>
                     <button
