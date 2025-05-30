@@ -9,11 +9,11 @@ function StatSection() {
           <div className="grid grid-cols-2 md:grid-cols-4 items-center text-center bg-black/70 mx-auto py-16 backdrop-blur-sm">
             <div className="font-bold text-white">
               <h1 className="text-5xl">90+</h1>
-              <p>Pendaftar</p>
+              <p>Pembeli</p>
             </div>
             <div className="font-bold text-white">
               <h1 className="text-5xl">8+</h1>
-              <p>Mentor</p>
+              <p>penjualan</p>
             </div>
             <div className="font-bold text-white">
               <div className=" flex items-center justify-center">
@@ -25,7 +25,7 @@ function StatSection() {
             </div>
             <div className="font-bold text-white">
               <h1 className="text-5xl">100+</h1>
-              <p>Lulusan</p>
+              <p>layanan</p>
             </div>
           </div>
         </div>
