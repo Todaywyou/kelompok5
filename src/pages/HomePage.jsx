@@ -23,8 +23,6 @@ export default function HomePage() {
       <Mitra />
       <StatSection />
       <CustomerReviews />
-      <Kami />
-      <Sejarah />
       <Footer />
     </div>
   );

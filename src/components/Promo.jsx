@@ -12,7 +12,7 @@ const promos = [
     available: 100,
     sold: 50,
     image: "/bengbeng.jpg",
-    countdown: 864000, // 10 hari
+    countdown: 864000,
   },
   {
     name: "Cokelatos",
@@ -38,13 +38,13 @@ const promos = [
 
 const Promo = () => {
   const settings = {
-    dots: true, // titik di bawah
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true, // aktifkan auto geser
-    autoplaySpeed: 3000, // 3 detik
+    autoplay: true,
+    autoplaySpeed: 3000,
   };
 
   return (
@@ -58,39 +58,39 @@ const Promo = () => {
           return (
             <div
               key={idx}
-              className="bg-white rounded-lg shadow border border-orange-300 p-4 flex items-center space-x-4"
+              className="bg-white rounded-lg shadow border border-orange-300 p-4 text-center"
             >
-              <div className="flex-shrink-0">
-                <img
-                  src={promo.image}
-                  alt={promo.name}
-                  className="w-24 h-24 object-contain"
-                />
-                <div className="bg-orange-500 text-white text-xs px-1 py-0.5 rounded mt-1 text-center">
-                  {promo.discount} HEMAT
-                </div>
+              <img
+                src={promo.image}
+                alt={promo.name}
+                className="w-32 h-32 object-contain mx-auto"
+              />
+              <div className="bg-orange-500 text-white text-[10px] px-2 py-0.5 rounded mt-2 inline-block">
+                {promo.discount} HEMAT
               </div>
-              <div className="flex-1">
-                <h2 className="text-lg font-bold text-gray-800">
-                  {promo.name}
-                </h2>
-                <div className="flex items-center space-x-1 mt-1">
-                  <span className="text-orange-600 font-semibold text-base">
-                    Rp{promo.price}
-                  </span>
-                  <span className="line-through text-gray-400 text-xs">
-                    Rp{promo.originalPrice}
-                  </span>
-                </div>
-                <div className="text-xs text-gray-500 mt-0.5">
-                  Tersedia: {promo.available} | Terjual: {promo.sold}
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-1 my-1">
-                  <div
-                    className="bg-orange-500 h-1 rounded-full"
-                    style={{ width: `${progress}%` }}
-                  ></div>
-                </div>
+
+              <h2 className="text-lg font-bold text-gray-800 mt-3">
+                {promo.name}
+              </h2>
+
+              <div className="flex justify-center items-center space-x-2 mt-1">
+                <span className="text-orange-600 font-semibold text-base">
+                  Rp{promo.price}
+                </span>
+                <span className="line-through text-gray-400 text-xs">
+                  Rp{promo.originalPrice}
+                </span>
+              </div>
+
+              <div className="text-xs text-gray-500 mt-1">
+                Tersedia: {promo.available} | Terjual: {promo.sold}
+              </div>
+
+              <div className="w-full bg-gray-200 rounded-full h-1.5 mt-2">
+                <div
+                  className="bg-orange-500 h-1.5 rounded-full"
+                  style={{ width: `${progress}%` }}
+                ></div>
               </div>
             </div>
           );
