@@ -69,21 +69,6 @@ function AlatKuliah() {
 
   return (
     <div className="relative min-h-screen bg-orange-50 py-12 px-6">
-      {/* Header Keranjang */}
-      <div className="fixed top-6 right-6 flex items-center space-x-3">
-        <div className="relative">
-          <ShoppingCart className="w-8 h-8 text-orange-600" />
-          {totalItems > 0 && (
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-              {totalItems}
-            </span>
-          )}
-        </div>
-        <button className="bg-orange-600 text-white px-4 py-2 rounded-xl shadow hover:bg-orange-700 transition">
-          Belanja Sekarang
-        </button>
-      </div>
-
       {/* Judul */}
       <h1 className="text-4xl font-bold text-center text-orange-600 mb-10">
         Daftar Alat Kuliah
@@ -126,6 +111,21 @@ function AlatKuliah() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Keranjang & Tombol Belanja di Bawah */}
+      <div className="mt-12 flex flex-col items-center justify-center">
+        <div className="relative mb-3">
+          <ShoppingCart className="w-10 h-10 text-orange-600" />
+          {totalItems > 0 && (
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              {totalItems}
+            </span>
+          )}
+        </div>
+        <button className="bg-orange-600 text-white px-6 py-2 rounded-xl shadow hover:bg-orange-700 transition">
+          Belanja Sekarang
+        </button>
       </div>
     </div>
   );
