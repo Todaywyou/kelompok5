@@ -88,31 +88,6 @@ function NavBar() {
 
       {/* End */}
       <div className="navbar-end gap-2">
-        <div className="relative">
-          <button
-            type="button"
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
-            tabIndex={0}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <circle cx="11" cy="11" r="7" strokeWidth="2" />
-              <line
-                x1="21"
-                y1="21"
-                x2="16.65"
-                y2="16.65"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          </button>
-        </div>
         <button className="btn bg-white text-black hover:bg-orange-100">
           Login
         </button>
