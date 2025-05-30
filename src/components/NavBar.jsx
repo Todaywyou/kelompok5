@@ -72,7 +72,8 @@ function NavBar() {
               <summary>Katalog</summary>
               <ul className="p-2">
                 <li>
-                  <Link to="/katalog#makanan">Makanan & Minuman</Link>
+                <Link to="/makan">Makanan & Minuman</Link>
+
                 </li>
                 <li>
                   <Link to="/katalog#kuliah">Kebutuhan Kuliah</Link>
@@ -88,7 +89,7 @@ function NavBar() {
 
       {/* End */}
       <div className="navbar-end gap-3">
-        <div className="relative">
+        <div className="relative bg-white">
           <input
             type="text"
             placeholder="Search"

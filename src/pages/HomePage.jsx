@@ -6,6 +6,10 @@ import Profil from '../components/profil'
 import Sejarah from '../components/Sejarah'
 import Kami from '../components/Kami'
 import Mitra from '../components/Mitra'
+import Footer from '../components/Footer'
+import StatSection from '../components/Stat-Section'
+import Riview from '../components/Riview'
+import CustomerReviews from '../components/Riview'
 
 
 
@@ -15,10 +19,13 @@ export default function HomePage() {
       <NavBar />
       <Hero />
       <Profil />
-      <Card/>
-    <Mitra/>
+      <Card />
+      <Mitra />
+      <StatSection />
+      <CustomerReviews />
       <Kami />
       <Sejarah />
+      <Footer />
     </div>
   );
   
