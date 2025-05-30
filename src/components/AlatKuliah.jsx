@@ -100,7 +100,10 @@ function AlatKuliah() {
                 >
                   -
                 </button>
-                <span className="px-3">{cartCounts[item.id] || 0}</span>
+                {/* Tampilkan angka hitam pekat dan tebal */}
+                <span className="px-3 font-bold text-black">
+                  {cartCounts[item.id] || 0}
+                </span>
                 <button
                   onClick={() => handleIncrease(item.id)}
                   className="bg-orange-500 text-white px-3 py-1 rounded-full hover:bg-orange-600 transition"
