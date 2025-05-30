@@ -50,7 +50,7 @@ function NavBar() {
                 </details>
               </li>
               <li>
-                <Link to="/contact">Contact</Link>
+                <Link to="/kontak">Contact</Link>
               </li>
             </ul>
           )}
@@ -81,7 +81,7 @@ function NavBar() {
             </details>
           </li>
           <li>
-            <Link to="/contact">Kontak</Link>
+            <Link to="/kontak">Kontak</Link>
           </li>
         </ul>
       </div>

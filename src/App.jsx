@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import Profil from "./components/profil";
 import Katalog from "./pages/Katalog";
 import Makan from "./pages/makan";
+import Kontak from "./pages/kontak";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <Route path="/TentangKami" element={<TentangKami />} />
       <Route path="/Katalog" element={<Katalog />} />
       <Route path="/makan" element={<Makan />} />
+      <Route path="/kontak" element={<Kontak/>}/>
     </Routes>
   );
 }
