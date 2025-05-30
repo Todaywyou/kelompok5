@@ -47,8 +47,17 @@ const dataSejarah = [
 ];
 
 const Card = ({ nomor, icon, judul, deskripsi, warna }) => {
+  const [pressed, setPressed] = React.useState(false);
+
   return (
-    <div className="relative bg-white shadow-md rounded-full px-6 py-4 flex items-center gap-4 w-full max-w-3xl mx-auto transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]">
+    <div
+      onTouchStart={() => setPressed(true)}
+      onTouchEnd={() => setPressed(false)}
+      onMouseLeave={() => setPressed(false)} // jika user sentuh lalu geser keluar
+      className={`relative bg-white shadow-md rounded-full px-6 py-4 flex items-center gap-4 w-full max-w-3xl mx-auto transition-all duration-300 transform touch-manipulation ${
+        pressed ? "scale-[0.98]" : "hover:scale-[1.03] focus:scale-[1.03]"
+      }`}
+    >
       <div
         className={`w-10 h-10 text-white rounded-full flex items-center justify-center shadow ${warna}`}
       >
