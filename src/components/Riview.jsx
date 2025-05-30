@@ -8,7 +8,7 @@ const initialReviews = [
     date: "20 Mar, 2024",
     rating: 5,
     comment:
-      "I recently had the opportunity to explore Pagedone's UI design system...",
+      "Layanan yang di berikan di sini bagus dan cepat dalam pelayanan",
     avatar: "https://randomuser.me/api/portraits/women/65.jpg",
     likes: 8,
     replies: 2,
@@ -19,7 +19,7 @@ const initialReviews = [
     date: "16 Dec, 2023",
     rating: 4,
     comment:
-      "I recently had the opportunity to explore Pagedone's UI design system...",
+      "Tidak perlu diragukan lagi untuk belanja di sini harga ternjangkau",
     avatar: "https://randomuser.me/api/portraits/men/32.jpg",
     likes: 10,
     replies: 5,
@@ -30,7 +30,7 @@ const initialReviews = [
     date: "24 Oct, 2023",
     rating: 5,
     comment:
-      "I recently had the opportunity to explore Pagedone's UI design system...",
+      "harga terjangkau ngeprint cuman 500 perak",
     avatar: "https://randomuser.me/api/portraits/men/75.jpg",
     likes: 4,
     replies: 0,

@@ -8,6 +8,7 @@ import Katalog from "./pages/Katalog";
 import Makan from "./pages/makan";
 import Kontak from "./pages/kontak";
 
+
 export default function App() {
   return (
     <Routes>
@@ -16,7 +17,7 @@ export default function App() {
       <Route path="/TentangKami" element={<TentangKami />} />
       <Route path="/Katalog" element={<Katalog />} />
       <Route path="/makan" element={<Makan />} />
-      <Route path="/Kontak" element={<Kontak/>}/>
+      <Route path="/Kontak" element={<Kontak />} />
     </Routes>
   );
 }
