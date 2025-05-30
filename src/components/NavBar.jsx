@@ -32,14 +32,14 @@ function NavBar() {
 
           {/* Mobile Menu */}
           {isDropdownOpen && (
-            <ul className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-50">
+            <ul className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-orange-200 rounded-box w-52 z-50">
               <li>
                 <Link to="/">HOME</Link>
               </li>
               <li tabIndex={0}>
                 <details>
                   <summary>Katalog</summary>
-                  <ul className="p-2">
+                  <ul className="p-2 bg-orange-100 rounded">
                     <li>
                       <Link to="/katalog#makanan">Makanan & Minuman</Link>
                     </li>
@@ -70,10 +70,9 @@ function NavBar() {
           <li>
             <details>
               <summary>Katalog</summary>
-              <ul className="p-2">
+              <ul className="p-2 bg-orange-200 rounded">
                 <li>
-                <Link to="/makan">Makanan & Minuman</Link>
-
+                  <Link to="/makan">Makanan & Minuman</Link>
                 </li>
                 <li>
                   <Link to="/katalog#kuliah">Kebutuhan Kuliah</Link>
@@ -88,16 +87,16 @@ function NavBar() {
       </div>
 
       {/* End */}
-      <div className="navbar-end gap-3">
-        <div className="relative bg-white">
+      <div className="navbar-end gap-2">
+        <div className="relative">
           <input
             type="text"
             placeholder="Search"
-            className="input input-bordered w-24 md:w-auto pr-10"
+            className="input input-bordered w-32 md:w-48 pr-10"
           />
           <button
             type="button"
-            className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
             tabIndex={0}
           >
             <svg
@@ -119,7 +118,9 @@ function NavBar() {
             </svg>
           </button>
         </div>
-        <button className="btn">Button</button>
+        <button className="btn bg-white text-black hover:bg-orange-100">
+          Login
+        </button>
       </div>
     </div>
   );

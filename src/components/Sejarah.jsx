@@ -1,89 +1,89 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { BookOpen, CalendarDays } from "lucide-react";
+import {
+  MessageCircle,
+  User,
+  CalendarDays,
+  Megaphone,
+  BarChart2,
+} from "lucide-react";
 
-const sejarahData = [
+const dataSejarah = [
   {
-    tahun: "2019",
+    nomor: "01",
+    icon: <MessageCircle size={20} />,
     judul: "Awal Berdiri",
     deskripsi:
-      "Kantin HMJ MI resmi berdiri pada tahun 2019 sebagai inisiatif mahasiswa untuk mendukung kebutuhan konsumsi harian.",
+      "Kantin HMJ MI resmi berdiri tahun 2019 sebagai inisiatif mahasiswa untuk konsumsi harian.",
+    warna: "bg-yellow-400",
   },
   {
-    tahun: "2020",
+    nomor: "02",
+    icon: <User size={20} />,
     judul: "Pengembangan Menu",
-    deskripsi:
-      "Menambahkan variasi menu makanan dan minuman, serta fokus pada makanan sehat dan terjangkau.",
+    deskripsi: "Menambahkan variasi menu sehat dan terjangkau pada tahun 2020.",
+    warna: "bg-indigo-400",
   },
   {
-    tahun: "2021",
+    nomor: "03",
+    icon: <CalendarDays size={20} />,
     judul: "Perluasan Ruang",
-    deskripsi:
-      "Ruang kantin diperluas untuk menampung lebih banyak mahasiswa dan suasana yang lebih nyaman.",
+    deskripsi: "Perluasan ruang kantin untuk kenyamanan mahasiswa di 2021.",
+    warna: "bg-green-400",
   },
   {
-    tahun: "2022",
+    nomor: "04",
+    icon: <Megaphone size={20} />,
     judul: "Digitalisasi Layanan",
-    deskripsi:
-      "Memperkenalkan sistem pemesanan online dan metode pembayaran non-tunai untuk efisiensi layanan.",
+    deskripsi: "Pemesanan online dan pembayaran digital diperkenalkan di 2022.",
+    warna: "bg-cyan-400",
   },
   {
-    tahun: "2023",
+    nomor: "05",
+    icon: <BarChart2 size={20} />,
     judul: "Peningkatan Pelayanan",
-    deskripsi:
-      "Peningkatan kualitas pelayanan dan kolaborasi dengan vendor lokal untuk menambah ragam pilihan menu.",
+    deskripsi: "Kolaborasi vendor lokal & peningkatan pelayanan pada 2023.",
+    warna: "bg-blue-400",
   },
 ];
 
-function Sejarah() {
+const Card = ({ nomor, icon, judul, deskripsi, warna }) => {
   return (
-    <div className="p-6 md:p-12 bg-gradient-to-br from-green-50 to-green-100 min-h-screen">
-      <h1 className="text-3xl md:text-4xl font-bold text-green-800 text-center mb-8">
-        Timeline Sejarah Kantin HMJ MI
-      </h1>
-      <div className="relative">
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-green-400 h-full" />
-        <div className="flex flex-col gap-10">
-          {sejarahData.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className={`flex flex-col md:flex-row items-center ${
-                index % 2 === 0 ? "md:flex-row-reverse" : ""
-              }`}
-            >
-              <div className="flex items-center justify-center bg-green-500 text-white rounded-full w-10 h-10 z-10">
-                <CalendarDays size={20} />
-              </div>
-              <div
-                className={`bg-white rounded-lg shadow-md p-4 w-full md:w-1/2 ${
-                  index % 2 === 0 ? "md:mr-6" : "md:ml-6"
-                }`}
-              >
-                <h2 className="text-xl font-semibold text-green-700">
-                  {item.tahun} - {item.judul}
-                </h2>
-                <p className="text-gray-600 mt-2">{item.deskripsi}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+    <div className="relative bg-white shadow-md rounded-full px-6 py-4 flex items-center gap-4 w-full max-w-3xl mx-auto transition-all duration-300 hover:scale-[1.03]">
+      <div
+        className={`w-10 h-10 text-white rounded-full flex items-center justify-center shadow ${warna}`}
+      >
+        {icon}
       </div>
-      <div className="flex justify-center mt-10">
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2 text-green-800 font-medium border border-green-400 px-4 py-2 rounded-full cursor-pointer shadow hover:bg-green-100 transition"
-        >
-          <BookOpen size={18} />
-          Baca Selengkapnya
-        </motion.div>
+      <div className="flex-1">
+        <h4 className="text-sm font-semibold text-gray-700">
+          {nomor} — {judul}
+        </h4>
+        <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+          {deskripsi}
+        </p>
       </div>
     </div>
   );
-}
+};
 
-export default Sejarah;
+const SejarahInfografis = () => {
+  return (
+    <div className="bg-gray-50 py-16 px-4">
+      <div className="text-center mb-10">
+        <h2 className="text-xl font-bold text-gray-800">
+          Infografis Sejarah Kantin HMJ MI
+        </h2>
+        <p className="text-sm text-gray-500 mt-2">
+          Perjalanan singkat dari awal berdiri hingga inovasi layanan.
+        </p>
+      </div>
+      <div className="flex flex-col gap-6">
+        {dataSejarah.map((item, index) => (
+          <Card key={index} {...item} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default SejarahInfografis;

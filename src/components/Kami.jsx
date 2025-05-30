@@ -1,43 +1,42 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 
 function Kami() {
   return (
-    <div className="bg-white text-gray-800 py-12 px-4 md:px-16">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row items-center">
-        {/* Gambar Kantin */}
-        <div className="md:w-1/2 mb-6 md:mb-0">
+    <div className="bg-white text-gray-800 py-12 px-4 md:px-20">
+      {/* Judul Tengah */}
+      <div className="text-center mb-10">
+        <h3 className="text-xs uppercase text-red-500 tracking-wider font-medium">
+          Sejarah Singkat
+        </h3>
+        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mt-1">
+          Profil Kantin HMJ MI
+        </h2>
+        <p className="text-gray-600 text-sm md:text-base mt-2 max-w-xl mx-auto leading-relaxed">
+          Tempat kuliner favorit mahasiswa dengan suasana modern dan menu yang
+          lezat, sehat, dan terjangkau.
+        </p>
+      </div>
+
+      {/* Konten Gambar dan Deskripsi */}
+      <div className="flex flex-col md:flex-row items-start gap-8">
+        {/* Gambar */}
+        <div className="md:w-1/3 w-full flex justify-center">
           <img
-            src="/kantin.png" // Ganti dengan path foto kantin
+            src="/ntin.png"
             alt="Kantin HMJ MI"
-            className="rounded-xl shadow-lg"
+            className="w-48 md:w-56 rounded-xl shadow-md object-contain"
           />
         </div>
 
-        {/* Konten */}
-        <div className="md:w-1/2 md:pl-12">
-          <h2 className="text-3xl font-bold mb-4 text-red-600">
-            Profil Kantin HMJ MI
-          </h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            Kantin HMJ MI adalah pusat kuliner di kampus yang menyediakan
-            berbagai makanan lezat dan terjangkau bagi mahasiswa. Dengan suasana
-            yang nyaman dan modern, kantin ini menjadi tempat favorit untuk
-            bersantai dan menikmati hidangan berkualitas. Kami berkomitmen
-            menghadirkan pilihan menu sehat, enak, dan bervariasi demi
-            kenyamanan Anda.
+        {/* Deskripsi */}
+        <div className="md:w-2/3 w-full">
+          <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+            Kantin HMJ MI adalah pusat kuliner kampus yang menawarkan berbagai
+            pilihan makanan berkualitas. Mengusung konsep modern, tempat ini
+            menjadi ruang bersantai yang nyaman bagi mahasiswa. Dengan harga
+            terjangkau dan pelayanan ramah, kantin ini berkomitmen menyajikan
+            menu yang tak hanya enak tapi juga mendukung gaya hidup sehat.
           </p>
-
-          {/* Tombol */}
-          <Link
-            to="/TentangKami"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-semibold px-5 py-3 rounded-full shadow transition-all duration-300"
-          >
-            Selengkapnya Tentang Kami
-            <ArrowRight size={18} />
-          </Link>
         </div>
       </div>
     </div>
