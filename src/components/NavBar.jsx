@@ -41,10 +41,10 @@ function NavBar() {
                   <summary>Katalog</summary>
                   <ul className="p-2 bg-orange-100 rounded">
                     <li>
-                      <Link to="/katalog#makanan">Makanan & Minuman</Link>
+                      <Link to="/makan">Makanan & Minuman</Link>
                     </li>
                     <li>
-                      <Link to="/katalog#kuliah">Kebutuhan Kuliah</Link>
+                      <Link to="/Katalog">Kebutuhan Kuliah</Link>
                     </li>
                   </ul>
                 </details>
