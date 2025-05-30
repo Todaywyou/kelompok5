@@ -83,11 +83,13 @@ export default function CustomerReviews() {
 
   return (
     <div className="bg-white min-h-screen py-10 px-4 sm:px-8">
-      <h2 className="text-3xl font-bold text-center mb-10">Customer Reviews</h2>
+      <h2 className="text-3xl font-bold text-gray-900 text-center mb-10">
+        Customer Reviews
+      </h2>
 
       <div className="space-y-6">
         {reviews.map((r) => (
-          <div key={r.id} className="bg-orange-200 p-5 rounded-lg shadow-sm">
+          <div key={r.id} className="bg-orange-100 p-5 rounded-lg shadow-sm">
             <div className="flex items-start gap-4">
               <img
                 src={r.avatar}
@@ -97,8 +99,8 @@ export default function CustomerReviews() {
               <div className="flex-1">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h4 className="font-semibold">{r.name}</h4>
-                    <p className="text-sm text-black">{r.date}</p>
+                    <h4 className="font-semibold text-gray-900">{r.name}</h4>
+                    <p className="text-sm text-gray-700">{r.date}</p>
                   </div>
                   <div className="flex items-center text-yellow-400">
                     {Array(r.rating)
@@ -108,11 +110,11 @@ export default function CustomerReviews() {
                       ))}
                   </div>
                 </div>
-                <p className="mt-2 text-black text-sm">{r.comment}</p>
-                <div className="flex gap-6 mt-3 text-black text-sm">
+                <p className="mt-2 text-gray-800 text-sm">{r.comment}</p>
+                <div className="flex gap-6 mt-3 text-gray-700 text-sm">
                   <button
                     onClick={() => handleLike(r.id)}
-                    className="flex items-center gap-1 hover:text-black"
+                    className="flex items-center gap-1 hover:text-gray-900"
                   >
                     <FaThumbsUp /> {r.likes}
                   </button>
@@ -126,14 +128,17 @@ export default function CustomerReviews() {
         ))}
       </div>
 
+      {/* Submit Form */}
       <form
         onSubmit={handleSubmit}
         className="bg-gray-50 mt-10 p-6 rounded-lg shadow-sm space-y-4"
       >
-        <h3 className="text-lg text-black font-semibold">Submit Your Review</h3>
+        <h3 className="text-lg text-gray-900 font-semibold">
+          Submit Your Review
+        </h3>
 
         <div className="flex items-center gap-2">
-          <span className="text-sm font-medium text-black">
+          <span className="text-sm font-medium text-gray-800">
             Add Your Rating:
           </span>
           {Array(5)
@@ -155,7 +160,7 @@ export default function CustomerReviews() {
             placeholder="Name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="border p-2 rounded w-full"
+            className="border p-2 rounded w-full text-gray-900"
             required
           />
           <input
@@ -165,7 +170,7 @@ export default function CustomerReviews() {
             onChange={(e) =>
               setFormData({ ...formData, email: e.target.value })
             }
-            className="border p-2 rounded w-full"
+            className="border p-2 rounded w-full text-gray-900"
             required
           />
         </div>
@@ -176,13 +181,13 @@ export default function CustomerReviews() {
           onChange={(e) =>
             setFormData({ ...formData, comment: e.target.value })
           }
-          className="w-full border p-2 rounded h-24"
+          className="w-full border p-2 rounded h-24 text-gray-900"
           required
         ></textarea>
 
         <button
           type="submit"
-          className="bg-orange-300 text-white px-6 py-2 rounded hover:bg-orange-500"
+          className="bg-orange-300 text-white px-6 py-2 rounded hover:bg-orange-400 transition"
         >
           Submit Reviews
         </button>
