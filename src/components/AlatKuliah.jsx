@@ -84,12 +84,19 @@ function AlatKuliah() {
   };
 
   const handleDownload = async () => {
-    if (!receiptRef.current) return;
+    if (!receiptRef.current) {
+      alert("Struk belum siap. Silakan klik Belanja Sekarang dulu.");
+      return;
+    }
 
     try {
+      // Beri jeda supaya elemen benar-benar render
+      await new Promise((res) => setTimeout(res, 500));
+
       const canvas = await html2canvas(receiptRef.current, {
         scale: 2,
         useCORS: true,
+        backgroundColor: "#ffffff", // ini penting agar PDF tidak transparan
       });
 
       const imgData = canvas.toDataURL("image/png");
@@ -105,14 +112,13 @@ function AlatKuliah() {
       pdf.save(`struk-belanja-${Date.now()}.pdf`);
     } catch (error) {
       console.error("Gagal membuat PDF:", error);
-      alert("Gagal membuat PDF. Coba reload halaman.");
+      alert("❌ Gagal membuat PDF. Coba reload halaman atau periksa koneksi.");
     }
   };
   
-  
 
   return (
-    <div className="relative min-h-screen bg-orange-50 py-12 px-6">
+    <div className="min-h-screen bg-orange-50 py-12 px-6">
       <h1 className="text-4xl font-bold text-center text-orange-600 mb-10">
         Daftar Alat Kuliah
       </h1>
@@ -157,7 +163,9 @@ function AlatKuliah() {
           </div>
         ))}
       </div>
-      <div className="fixed bottom-10 right-10 flex flex-row items-center gap-3 z-50">
+
+      {/* Tombol dan keranjang di bagian bawah */}
+      <div className="mt-12 flex justify-center items-center gap-4">
         <div className="relative">
           <ShoppingCart className="w-10 h-10 text-orange-600" />
           {totalItems > 0 && (
@@ -178,7 +186,12 @@ function AlatKuliah() {
         <div className="mt-8 flex flex-col items-center">
           <div
             ref={receiptRef}
-            className="bg-white p-4 rounded shadow text-[12px] font-mono w-[260px] whitespace-pre-line"
+            className="bg-white p-4 rounded shadow text-[12px] font-mono w-[260px] whitespace-pre-line text-black"
+            style={{
+              backgroundColor: "#ffffff", 
+              color: "#000000",
+              fontFamily: "monospace",
+            }}
           >
             {receipt}
           </div>
