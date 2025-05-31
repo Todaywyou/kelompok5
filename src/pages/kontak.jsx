@@ -51,7 +51,7 @@ function Kontak() {
           <div className="bg-blue-100 text-blue-800 p-6 rounded-lg shadow-md w-full md:w-1/4 text-center">
             <h2 className="text-xl font-semibold mb-2">Abror</h2>
             <p className="text-sm mb-1">Nomor: ‪(+62) 857-8356-5731‬</p>
-            <p className="text-sm">Hubungi untuk bagian kebersihan.</p>
+            <p className="text-sm">Hubungi untuk bagian pengantaran dan konfirmassi print.</p>
             <a
               href="https://wa.me/6285783565731"
               target="_blank"
